@@ -13,27 +13,24 @@ from m8n.config import BOT_NAME
 
 @Client.on_callback_query(filters.regex("cbhome"))
 async def cbhome(_, query: CallbackQuery):
-    await query.edit_message_text(
-        f"""**Welcome [👋]({START_PIC}) [{query.message.chat.first_name}](tg://user?id={query.message.chat.id})**
-
-This is the {BOT_NAME}, a Bot for playing high quality and unbreakable music in your groups voice chat.
-
-Just add me to your group and make a admin with needed admin permission to perform a right actions !!
-
-Use the given buttons for more 📍""",
-        reply_markup=InlineKeyboardMarkup(
+        await query.edit_message_text(
+           f"""**✌️ɪᴍ ʟᴀᴢʏ ᴀʙᴏᴜᴛ ᴛʏᴘɪɴɢ ᴀɴʏᴛʜɪɴɢ ɪᴛs ᴀ ᴍᴜsɪᴄ ʙᴏᴛ ʜᴀᴠᴇ ᴍᴀɴʏ ғᴇᴀᴛᴜʀᴇs📍\n\n ᴄʀᴇᴀᴛᴇᴅ ʙʏ[s•4•sʜɪᴠ](t.me/shivamdemon)...**""",
+       reply_markup=InlineKeyboardMarkup(
             [
-                [
+                [   
                     InlineKeyboardButton(
-                        "About", callback_data="cbabout"),
-                    InlineKeyboardButton(
-                        "Commands", callback_data="cbcmds")
+                        "💜°ᴏᴡɴᴇʀ°", url=f"https://t.me/itz_rupu")
                 ],
                 [
                     InlineKeyboardButton(
-                        "✚ Add Bot in Your Group ✚", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "💫ɢʀᴏᴜᴘ", callback_data="squadgoalsss"),
+                    InlineKeyboardButton(
+                        "°⚙️ᴄᴍᴅs°", callback_data="cbcmds")
+                ],
+                [
+                    InlineKeyboardButton(
+                        "🏷️°sᴜᴍᴍᴏɴ ᴍᴇ ʙᴀʙʏ°", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ]
-                
            ]
         ),
     )
