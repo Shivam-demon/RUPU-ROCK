@@ -56,7 +56,7 @@ from m8n.utils.administrator import adminsOnly
 async def pause(_, message: Message):
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            "🐬 ʏᴏᴜ ᴀʀᴇ **ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ**!│\nᴛʀʏ ᴡɪᴛʜ ᴜʀ ᴀᴅᴍɪɴ ᴀᴄᴄᴏᴜɴᴛ."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
@@ -66,16 +66,16 @@ async def pause(_, message: Message):
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
         return await message.reply_text(
-            "❌ __**I dont think if something's playing on voice chat**__"
+            "❗ __**ᴛʜᴇʀᴇ ɪs ɴᴏᴛʜɪɴɢ sᴛʀᴇᴀᴍɪɴɢ**__"
         )
     elif not await is_music_playing(message.chat.id):
         return await message.reply_text(
-            "❌ __**I dont think if something's playing on voice chat**__"
+            "❗ __**ɪs ᴀɴʏᴛʜɪɴɢ ɪɴ ᴠᴄ**__"
         )
     await music_off(chat_id)
     await calls.pytgcalls.pause_stream(chat_id)
     await message.reply_text(
-        f"• Paused ▶️ Assistant\n• By : {checking}"
+        f"• sᴏɴɢ ᴘᴀᴜsᴇᴅ ⏸️\n• ʙʏ : {checking}"
     )
 
 
@@ -83,7 +83,7 @@ async def pause(_, message: Message):
 async def resume(_, message: Message):
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            "🐬 ʏᴏᴜ ᴀʀᴇ **ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ**!│\nᴛʀʏ ᴡɪᴛʜ ᴜʀ ᴀᴅᴍɪɴ ᴀᴄᴄᴏᴜɴᴛ."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
@@ -93,17 +93,17 @@ async def resume(_, message: Message):
     chat_id = message.chat.id
     if not await is_active_chat(chat_id):
         return await message.reply_text(
-            "❌ __**I dont think if something's paused on voice chat**__"
+            "❗ __**ᴛʜᴇʀᴇ ɪs ɴᴏᴛʜɪɴɢ sᴛʀᴇᴀᴍɪɴɢ**__"
         )
     elif await is_music_playing(chat_id):
         return await message.reply_text(
-            "❌ __**I dont think if something's paused on voice chat**__"
+            "❗ __**ɪs ᴀɴʏᴛʜɪɴɢ ɪɴ ᴠᴄ**__"
         )
     else:
         await music_on(chat_id)
         await calls.pytgcalls.resume_stream(chat_id)
         await message.reply_text(
-            f"• Resumed ⏸ Music\n• By : {checking}"
+            f"• ᴍᴜsɪᴄ ʀᴇsᴜᴍᴇᴅ ⏯️\n• ʙʏ: {checking}"
         )
 
 
@@ -111,7 +111,7 @@ async def resume(_, message: Message):
 async def stop(_, message: Message):
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            "🐬 ʏᴏᴜ ᴀʀᴇ **ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ**!│\nᴛʀʏ ᴡɪᴛʜ ᴜʀ ᴀᴅᴍɪɴ ᴀᴄᴄᴏᴜɴᴛ."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
@@ -127,11 +127,11 @@ async def stop(_, message: Message):
         await remove_active_chat(chat_id)
         await calls.pytgcalls.leave_group_call(chat_id)
         await message.reply_text(
-            f"• Music ❌ Stopped\n• By : {checking}"
+            f"• ᴍᴜsɪᴄ sᴛᴏᴘᴘᴇᴅ❗\n• ʙʏ : {checking}"
         )
     else:
         return await message.reply_text(
-            "❌ __**I dont think if something's playing on voice chat**__"
+            "❌ __**ᴛʜᴇʀᴇ ɪs ɴᴏᴛʜɪɴɢ sᴛʀᴇᴀᴍɪɴɢ**__"
         )
 
 
@@ -139,7 +139,7 @@ async def stop(_, message: Message):
 async def skip(_, message: Message):
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            "🐬 ʏᴏᴜ ᴀʀᴇ **ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ**!│\nᴛʀʏ ᴡɪᴛʜ ᴜʀ ᴀᴅᴍɪɴ ᴀᴄᴄᴏᴜɴᴛ."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
@@ -149,13 +149,13 @@ async def skip(_, message: Message):
     chat_id = message.chat.id
     chat_title = message.chat.title
     if not await is_active_chat(chat_id):
-        await message.reply_text("❌ __**Nothing's playing on voice chat**__")
+        await message.reply_text(" ⭕__**ɴᴏᴛʜɪɴɢ ɪs ᴘʟᴀʏɪɴɢ**__")
     else:
         task_done(chat_id)
         if is_empty(chat_id):
             await remove_active_chat(chat_id)
             await message.reply_text(
-                "❌ __**No more music in Queue**__\n\n**»** `Leaving Voice Chat...`"
+                "💡 __**ǫᴜᴇᴜᴇ ɪs ᴇᴍᴘᴛʏ**__\n**»** `ʟᴇᴀᴠɪɴɢ ᴠᴄ✌️...`"
             )
             await calls.pytgcalls.leave_group_call(chat_id)
             return
@@ -169,7 +169,7 @@ async def skip(_, message: Message):
                 ),
             )
             await message.reply_text(
-                f"• Skipped ⏩ Music\n• By : {checking}"
+                f"• ᴍᴜsɪᴄ sᴋɪᴘᴘᴇᴅ ⏭️⏱️\n• ʙʏ : {checking}"
             )
 
 
@@ -177,7 +177,7 @@ async def skip(_, message: Message):
 async def stop_cmd(_, message):
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            "🐬 ʏᴏᴜ ᴀʀᴇ **ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ**!│\nᴛʀʏ ᴡɪᴛʜ ᴜʀ ᴀᴅᴍɪɴ ᴀᴄᴄᴏᴜɴᴛ."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
