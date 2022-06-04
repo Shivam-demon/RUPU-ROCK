@@ -195,5 +195,5 @@ async def stop_cmd(_, message):
     except:
         pass
     await message.reply_text(
-        f"✅ __Erased queues in **{message.chat.title}**__\n│\n╰ Database cleaned by {checking}"
+        f"💤 ǫᴜᴇᴜᴇ ᴄʟᴇᴀɴᴇᴅ ɪɴ**{message.chat.title}**__\n│\nᴅᴀᴛᴀʙᴀsᴇ ᴄʟᴇᴀʀᴇᴅ {checking}"
     )
