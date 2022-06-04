@@ -17,7 +17,7 @@ from m8n.tgcalls import client as USER
 async def addchannel(client, message):
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            "🐬 ʏᴏᴜ ᴀʀᴇ **ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ**!│\nᴛʀʏ ᴡɪᴛʜ ᴜʀ ᴀᴅᴍɪɴ ᴀᴄᴄᴏᴜɴᴛ."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
@@ -31,7 +31,7 @@ async def addchannel(client, message):
             link_bokep = f"https://t.me/joinchat/{kontol}"
     except:
         await message.reply_text(
-            "**Add me admin first**",
+            "**ᴍᴀᴋᴇ ᴍᴇ ᴀᴅᴍɪɴ ғɪʀsᴛ ʙᴀʙʏ🤗**",
         )
         return
 
@@ -44,13 +44,13 @@ async def addchannel(client, message):
         await USER.join_chat(link_bokep)
     except UserAlreadyParticipant:
         await message.reply_text(
-            f"🔴 **{user.first_name} already join this group**",
+            f"🔴 **{user.first_name} ᴀʟʀᴇᴀᴅʏ ᴊᴏɪɴᴇᴅ ʙᴜᴅᴅʏ**",
         )
     except Exception as e:
         print(e)
         await message.reply_text(
-            f"❌ __**Assistant ({user.first_name}) can't join your group due to many join requests for userbot!**__\n‼️ Make sure the user is not banned in the group."
-            f"\n\n» `Manually add the {user.first_name} to your group`",
+            f"❌ __**ᴀssɪsᴛᴀɴᴛ ({user.first_name})  ғᴀɪʟᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴜʀ ɢʀᴏᴜᴘ ғɪʀsᴛ ᴜɴʙᴀɴ ɪᴛ ᴀɴᴅ ᴛʀʏ ᴀɢᴀɪɴ ʟᴀᴛᴇʀ."
+            f"\n\n» `ᴍᴀɴᴜᴀʟʟʏ ᴀᴅᴅ {user.first_name} ᴛᴏ ɢʀᴏᴜᴘ`",
         )
         return
 
@@ -59,7 +59,7 @@ async def addchannel(client, message):
 async def rem(USER, message):
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            "🐬 ʏᴏᴜ ᴀʀᴇ **ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ**!│\nᴛʀʏ ᴡɪᴛʜ ᴜʀ ᴀᴅᴍɪɴ ᴀᴄᴄᴏᴜɴᴛ."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
@@ -68,12 +68,12 @@ async def rem(USER, message):
     try:
         await USER.send_message(
             message.chat.id,
-            "✅ __Assistant successfully left chat__\n\n Join @UserLazyXBot",
+            "✅ ᴀssɪsᴛᴀɴᴛ ʟᴇғᴛ sᴜᴄᴄᴇsғᴜʟʟʏ",
         )
         await USER.leave_chat(message.chat.id)
     except:
         await message.reply_text(
-            "❌ __**Assistant can't leave your group! probably waiting for floodwaits**__\n\n» Manually remove me from your group</b>"
+            "❌ ᴀssɪsᴛᴀɴᴛ ғᴀʟɪᴇᴅ ᴛᴏ ʟᴇᴀᴠᴇ ᴄʜᴀᴛ ᴍᴀʏ ʙᴇ ɪᴛs ғʟᴏᴏᴅ ɴ ʟɪᴍɪᴛ ᴇʀʀᴏʀ ᴛʀʏ ᴀɢᴀɪɴ...🥺"
         )
 
         return
@@ -84,7 +84,7 @@ async def rem(USER, message):
 async def bye(client, message):
     left = 0
     sleep_time = 0.1
-    lol = await message.reply("**Assistant leaving all groups**\n\n`Processing...`")
+    lol = await message.reply("**ᴜsʀʀʙᴏᴛ ʟᴇᴀᴠɪɴɢ ᴀʟʟ ᴄʜᴀᴛs**\n\n`ʟᴏᴀᴅɪɴɢ...`")
     async for dialog in USER.iter_dialogs():
         try:
             await USER.leave_chat(dialog.chat.id)
@@ -94,4 +94,4 @@ async def bye(client, message):
             await asyncio.sleep(int(e.x))
         except Exception:
             pass
-    await lol.edit(f"🏃‍♂️ `Assistant leaving...`\n\n» **Left:** {left} chats.")
+    await lol.edit(f"🏃‍♂️ `ᴜsᴇʀʙᴏᴛ ʟᴇᴀᴠɪɴɢ...`\n\n» **ʟᴇғᴛ:** {left} chats.")
