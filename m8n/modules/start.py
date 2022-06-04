@@ -22,11 +22,11 @@ async def start_(client: Client, message: Message):
             [
                 [   
                     InlineKeyboardButton(
-                        "💜°ᴏᴡɴᴇʀ°", url=f"htt 
+                        "💜°ᴏᴡɴᴇʀ°", url=f"https://t.me/itz_rupu")
                 ],
                 [
                     InlineKeyboardButton(
-                        "💫ɢʀᴏᴜᴘ", callback_data="cbabout"),
+                        "💫ɢʀᴏᴜᴘ", callback_data="squadgoalsss"),
                     InlineKeyboardButton(
                         "°⚙️ᴄᴍᴅs°", callback_data="cbcmds")
                 ],
