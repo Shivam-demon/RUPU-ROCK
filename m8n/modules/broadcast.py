@@ -82,7 +82,7 @@ async def broadcast_message(_, message):
         except Exception:
             pass
     await message.reply_text(
-        f"✈️ **Broadcasted message in {sent} chats and {pin} pins.**"
+        f"✨ **Broadcasted message in {sent} chats and {pin} pins.**"
     )
 
 
@@ -110,4 +110,4 @@ async def broadcast_message(_, message):
             await asyncio.sleep(int(e.x))
         except Exception:
             pass
-    await m.edit(f"✈️ **Broadcasted message in {sent} chats.**")
+    await m.edit(f"✨ **Broadcasted message in {sent} chats.**")
