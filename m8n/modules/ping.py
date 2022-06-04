@@ -33,5 +33,5 @@ async def ping(_, message):
     end = datetime.now()
     resp = (end - start).microseconds / 1000
     await response.edit(
-        f"**🏓 Pong !!**\n`{resp} ms`"
+        f"**🏓 ᑭOᑎᘜ !!**\n`{resp} ms`"
     )
