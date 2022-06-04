@@ -169,7 +169,7 @@ async def skip(_, message: Message):
                 ),
             )
             await message.reply_text(
-                f"• ᴍᴜsɪᴄ sᴋɪᴘᴘᴇᴅ ⏭️⏱️\n• ʙʏ : {checking}"
+                f"• ᴍᴜsɪᴄ sᴋɪᴘᴘᴇᴅ ⏭️\n• ʙʏ : {checking}"
             )
 
 
