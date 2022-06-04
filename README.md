@@ -1,7 +1,7 @@
 ### A powerful bot that can play music on telegram group's voice chat with some useful features !!
 
 <p align="center">
-  <img src="https://telegra.ph/file/00a389a0c21a632ee29aa.jpg">
+  <img src="https://telegra.ph/file/c43a81a7f5383c9268ff2.jpg">
 </p>
 
 <h3>Requirements 📝</h3>
@@ -52,8 +52,8 @@
 
 ## Contact & Support
 
-<a href="https://t.me/M8N_SUPPORT"><img src="https://img.shields.io/badge/Join-Support%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a><br>
-<a href="https://t.me/M8N_OFFICIAL"><img src="https://img.shields.io/badge/Join-Updates%20Channel-blue.svg?style=for-the-badge&logo=Telegram"></a><br>
+<a href="https://t.me/shivamdemon"><img src="https://img.shields.io/badge/Join-Support%20Chat-blue.svg?style=for-the-badge&logo=Telegram"></a><br>
+<a href="https://t.me/squadgoalsss"><img src="https://img.shields.io/badge/Join-Chat%20Group-blue.svg?style=for-the-badge&logo=Telegram"></a><br>
 
 ## License
 
@@ -68,8 +68,5 @@ Distributed under the [GNU General Public License v3.0 License](https://github.c
 <br>
  
 - CallsMusic 
-- PavanMagar
 - Pyrogram
-- Mortal
-- M8N
 - PyTgCalls
