@@ -37,11 +37,11 @@ async def aexec(code, client, message):
 async def update(_, message: Message):
     m = subprocess.check_output(["git", "pull"]).decode("UTF-8")
     if str(m[0]) != "A":
-        x = await message.reply_text("⚠️ Found Update !! updating...")
+        x = await message.reply_text("⚠️ ғᴏᴜɴᴅ ᴀɴ ᴜᴘᴅᴀᴛᴇ!! ᴜᴘᴅᴀᴛɪɴɢ...")
         await start_restart_stage(x.chat.id, x.message_id)
         os.execvp("python3", ["python3", "-m", "m8n"])
     else:
-        await message.reply_text("Bot is already in the **up-to-date** mode with **[latest version](https://github.com/UnknownMortal/M8N-Music-Bot)**", disable_web_page_preview=True)
+        await message.reply_text("ᴜʀ ʙᴏᴛ ɪs ᴀʟʀᴇᴀᴅʏ **ᴜᴘ-ᴛᴏ-ᴅᴀᴛᴇ** ᴡɪᴛʜ ʟᴀᴛᴇsᴛ ᴠᴇʀsɪᴏɴ⚙️💭**", disable_web_page_preview=True)
         
 async def aexec(code, client, message):
     exec(
@@ -61,7 +61,7 @@ async def edit_or_reply(msg: Message, **kwargs):
 async def executor(client, message):
     if len(message.command) < 2:
         return await edit_or_reply(
-            message, text="__please give me some command to execute.__"
+            message, text="__ᴘʟs ɢɪᴠᴇ ᴍᴇ ᴄᴏᴍᴍᴀɴᴅ ᴛᴏ ᴇxᴇᴄᴜᴛᴇ.__"
         )
     try:
         cmd = message.text.split(" ", maxsplit=1)[1]
