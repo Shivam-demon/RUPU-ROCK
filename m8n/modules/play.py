@@ -121,15 +121,9 @@ async def generate_cover(requested_by, title, views, duration, thumbnail):
     img = Image.open("temp.png")
     draw = ImageDraw.Draw(img)
     font = ImageFont.truetype("etc/font.otf", 32)
-    draw.text((190, 550), f"Title: {title}", (255, 255, 255), font=font)
-    draw.text((190, 590), f"Duration: {duration}", (255, 255, 255), font=font)
-    draw.text((190, 630), f"Views: {views}", (255, 255, 255), font=font)
-    draw.text(
-        (190, 670),
-        f"Added By: {requested_by}",
-        (255, 255, 255),
-        font=font,
-    )
+    draw.text((190,550), f"Now playing: {title}", (255, 255, 255), font=font)
+    draw.text((190, 590), f"Title: {title}", (255, 255, 255), font=font)
+    
     img.save("final.png")
     os.remove("temp.png")
     os.remove("background.png")
@@ -145,7 +139,7 @@ async def hfmm(_, message):
     global DISABLED_GROUPS
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            "🐬 ʏᴏᴜ ᴀʀᴇ **ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ**!│\nᴛʀʏ ᴡɪᴛʜ ᴜʀ ᴀᴅᴍɪɴ ᴀᴄᴄᴏᴜɴᴛ."
         )
     permission = "can_delete_messages"
     m = await adminsOnly(permission, message)
@@ -156,7 +150,7 @@ async def hfmm(_, message):
     except:
         return
     if len(message.command) != 2:
-        await message.reply_text("I only know `/musicplayer on` and `/musicplayer off`")
+        await message.reply_text("ɪ ᴏɴʟʏ ᴋɴᴏᴡ `/musicplayer on` & `/musicplayer off`")
         return
     status = message.text.split(None, 1)[1]
     message.chat.id
@@ -164,28 +158,28 @@ async def hfmm(_, message):
         lel = await message.reply("`Processing...`")
         if message.chat.id not in DISABLED_GROUPS:
             await lel.edit(
-                f"🔴 __Music player already activate in **{message.chat.title}**__"
+                f"💤 ᴠᴄ ᴘʟᴀʏᴇʀ ɪs ᴀᴄᴛɪᴠᴀᴛᴇᴅ ɪɴ **{message.chat.title}**"
             )
             return
         DISABLED_GROUPS.remove(message.chat.id)
         await lel.edit(
-            f"✅ __Music player has been turn on successfully in **{message.chat.title}**__"
+            f"🎵 ᴠᴄ ᴘʟᴀʏᴇʀ ɪs sᴜᴄᴄᴇsғᴜʟʟʏ ᴛᴜʀɴ ᴏɴ ɪɴ **{message.chat.title}**"
         )
 
     elif status in ["OFF", "off", "Off"]:
-        lel = await message.reply("__`Processing...`__")
+        lel = await message.reply("__`ᴘʀᴏᴄᴇssɪɴɢ...`")
 
         if message.chat.id in DISABLED_GROUPS:
             await lel.edit(
-                f"🔴 __Music player already not active in **{message.chat.title}**__"
+                f"💤 ᴠᴄ ᴘʟᴀʏᴇʀ ɪs ɴᴏᴛ ᴀᴄᴛɪᴠᴇ ɪɴ **{message.chat.title}**"
             )
             return
         DISABLED_GROUPS.append(message.chat.id)
         await lel.edit(
-            f"✅ __Music player has been turn off successfully **{message.chat.title}**__"
+            f"🎵 ᴠᴄ ᴘʟᴀʏᴇʀ ɪs sᴜᴄᴄᴇsғᴜʟʟʏ ᴛᴜʀɴ ᴏғғ ɪɴ **{message.chat.title}**"
         )
     else:
-        await message.reply_text("I only know `/musicplayer on` and `/musicplayer off`")
+        await message.reply_text("ɪ ᴏɴʟʏ ᴋɴᴏᴡ `/musicplayer on` & `/musicplayer off`")
 
 
 @Client.on_callback_query(filters.regex(pattern=r"^(cls)$"))
@@ -195,8 +189,8 @@ async def closed(_, query: CallbackQuery):
     permission = "can_restrict_members"
     if permission not in permissions:
         return await query.answer(
-            "You don't have enough permissions to perform this action.\n"
-            + f"❌ Permission: {permission}",
+            "ʏᴏᴜ ᴅᴏɴᴛʜᴀᴠᴇ ᴇɴᴏᴜɢʜ ᴀᴅᴍɪɴ ʀɪɢʜᴛs.\n"
+            + f"❌ ᴘᴇʀᴍɪssɪᴏɴ: {permission}",
             show_alert=True,
         )
     await query.message.delete()
@@ -216,46 +210,40 @@ async def play(_, message: Message):
     user_id = message.from_user.id
     if message.sender_chat:
         return await message.reply_text(
-            "🔴 __You're an **Anonymous Admin**!__\n│\n╰ Revert back to user account from admin rights."
+            "🐬 ʏᴏᴜ ᴀʀᴇ **ᴀɴᴏɴʏᴍᴏᴜs ᴀᴅᴍɪɴ**!│\nᴛʀʏ ᴡɪᴛʜ ᴜʀ ᴀᴅᴍɪɴ ᴀᴄᴄᴏᴜɴᴛ."
         )
 
     if message.chat.id in DISABLED_GROUPS:
         await message.reply(
-            "🔴 __**Music player is turned off, ask the admin to turn on it on!**__"
+            "🏷️ **ᴍᴜsɪᴄ ᴘʟᴀʏᴇʀ ɪs ᴏғғ ᴀsᴋ ᴀᴅᴍɪɴ ᴛᴏ ᴛᴜʀɴ ɪᴛ ᴏɴ!**__"
         )
         return
-    lel = await message.reply("🔄 **Processing...**")
+    lel = await message.reply("🔄 **ᴘʀᴏᴄᴇssɪɴɢ...**")
 
     chid = message.chat.id
 
     c = await app.get_chat_member(message.chat.id, BOT_ID)
     if c.status != "administrator":
         await lel.edit(
-            f"I need to be admin with some permissions:\n\n❌ **can_manage_voice_chats:** To manage voice chats\n❌ **can_delete_messages:** To delete music's searched waste\n❌ **can_invite_users**: For inviting assistant to chat\n❌ **can_restrict_members**: For protecting music from spammers."
+            f"**ᴛᴏ ᴇɴᴊᴏʏ sᴇᴇᴍʟᴇss ᴍᴜsɪᴄ ᴍᴀᴋᴇ ᴍᴇ ᴀᴅᴍɪɴ ғɪʀsᴛ.💜💫"
         )
         return
     if not c.can_manage_voice_chats:
         await lel.edit(
-            "I don't have the required permission to perform this action."
-            + "\n❌ **Permission:** Manage Voice Chats"
+            "ᴅᴏɴᴛ ʜᴀᴠᴇ ʀɪɢʜᴛ ɢɪᴠᴇ ᴍᴇ."
+            + "\n💡 **ᴘᴇʀᴍɪssɪᴏɴ:** Manage Voice Chats"
         )
         return
     if not c.can_delete_messages:
         await lel.edit(
-            "I don't have the required permission to perform this action."
-            + "\n❌ **Permission:** Delete Message"
+            "ᴅᴏɴᴛ ʜᴀᴠᴇ ʀɪɢʜᴛ ɢɪᴠᴇ ᴍᴇ."
+            + "\n💡 **ᴘᴇʀᴍɪssɪᴏɴ:** Delete Message"
         )
         return
     if not c.can_invite_users:
         await lel.edit(
-            "I don't have the required permission to perform this action."
-            + "\n❌ **Permission:** Invite User Via Invitelink"
-        )
-        return
-    if not c.can_restrict_members:
-        await lel.edit(
-            "I don't have the required permission to perform this action."
-            + "\n❌ **Permission:** Ban User"
+            "ᴅᴏɴᴛ ʜᴀᴠᴇ ʀɪɢʜᴛ ɢɪᴠᴇ ᴍᴇ."
+            + "\n💡 **ᴘᴇʀᴍɪssɪᴏɴ:** Invite User Via Invitelink"
         )
         return
 
@@ -263,7 +251,7 @@ async def play(_, message: Message):
         b = await app.get_chat_member(message.chat.id, ASSID)
         if b.status == "kicked":
             await message.reply_text(
-                f"🔴 {ASSNAME} (@{ASSUSERNAME}) is banned in your chat **{message.chat.title}**\n\nUnban it first to use music"
+                f"🏷️ {ASSNAME} (@{ASSUSERNAME}) ʙᴀɴɴᴇᴅ ɪɴ ᴛʜɪs ᴄʜᴀᴛ **{message.chat.title}**\n\nᴜɴʙᴀɴ ғɪʀsᴛ ᴛᴏ ᴀᴅᴅ ɪᴛ🐬"
             )
             return
     except UserNotParticipant:
@@ -271,12 +259,12 @@ async def play(_, message: Message):
             try:
                 await ASS_ACC.join_chat(f"{message.chat.username}")
                 await message.reply(
-                    f"✅ **{ASSNAME} joined successfully**",
+                    f"💫 **ᴀssɪsᴛᴀɴᴛ ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ...ʏɪᴘᴘᴇʏ💜🥀**",
                 )
                 await remove_active_chat(chat_id)
             except Exception as e:
                 await message.reply_text(
-                    f"❌ __**Assistant failed to join**__\n\n**Reason**:{e}"
+                    f"❌ **ᴀssɪsᴛᴀɴᴛ ғᴀɪʟᴇᴅ ᴛᴏ ᴊᴏɪɴ🥺**\n**💭Reason**:{e}"
                 )
                 return
         else:
@@ -287,14 +275,14 @@ async def play(_, message: Message):
                     link_bokep = f"https://t.me/joinchat/{kontol}"
                 await ASS_ACC.join_chat(link_bokep)
                 await message.reply(
-                    f"✅ **{ASSNAME} joined successfully**",
+                    f"💫 **ᴀssɪsᴛᴀɴᴛ ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ...ʏɪᴘᴘᴇʏ💜🥀**",
                 )
                 await remove_active_chat(message.chat.id)
             except UserAlreadyParticipant:
                 pass
             except Exception as e:
                 return await message.reply_text(
-                    f"❌ __**Assistant failed to join**__\n\n**Reason**:{e}"
+                    f"❌ **ᴀssɪsᴛᴀɴᴛ ғᴀɪʟᴇᴅ ᴛᴏ ᴊᴏɪɴ🥺**\n**💭Reason**:{e}"
                 )
 
     await message.delete()
@@ -308,7 +296,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!"
+                f"⭕ ʏᴏᴜʀ ᴄʜᴏɪᴄᴇ ɪs ʟᴏɴɢᴇʀ ᴛʜᴀɴ {DURATION_LIMIT} ᴍɪɴᴜᴛᴇs💜✌️!"
             )
 
         file_name = get_file_name(audio)
@@ -376,7 +364,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!"
+                f"⭕ ʏᴏᴜʀ ᴄʜᴏɪᴄᴇ ɪs ʟᴏɴɢᴇʀ ᴛʜᴀɴ {DURATION_LIMIT} ᴍɪɴᴜᴛᴇs💜✌️!"
             )
             return
         requested_by = message.from_user.first_name
@@ -400,7 +388,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"▷ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ{title[:50]}\n\n*sɪᴢᴇ:** {size}\n**ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ:** {percentage}\n**sᴘᴇᴇᴅ:** {speed}\n**ᴇᴛᴀ:** {eta} sec"
                             )
                     except Exception as e:
                         pass
@@ -409,30 +397,30 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**▷ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ** {title[:50]}..\n\n**sɪᴢᴇ:** {size}\n**ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ:** {percentage}\n**sᴘᴇᴇᴅ:** {speed}\n**ᴇᴛᴀ:** {eta} sec"
                             )
                         print(
-                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
+                            f"[{url_suffix}] sᴀᴠᴇᴅ {percentage} ᴡɪᴛʜ sᴘᴇᴇᴅ {speed} | ᴇᴛᴀ: {eta} seconds"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**▷ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ** {title[:50]}...\n\n**sɪᴢᴇ:** {size}\n**ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ:** {percentage}\n**sᴘᴇᴇᴅ:** {speed}\n**ᴇᴛᴀ:** {eta} sec"
                             )
                         print(
-                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
+                            f"[{url_suffix}] sᴀᴠᴇᴅ {percentage} ᴡɪᴛʜ sᴘᴇᴇᴅ {speed} | ᴇᴛᴀ: {eta} seconds"
                         )
                 if per > 800:
                     if flex[str(bytesx)] == 4:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**▷ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ** {title[:50]}....\n\n**sɪᴢᴇ:** {size}\n**ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ:** {percentage}\n**sᴘᴇᴇᴅ:** {speed}\n**ᴇᴛᴀ:** {eta} sec"
                             )
                         print(
-                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
+                            f"[{url_suffix}] sᴀᴠᴇᴅ {percentage} ᴡɪᴛʜ sᴘᴇᴇᴅ {speed} | ᴇᴛᴀ: {eta} seconds"
                         )
             if d["status"] == "finished":
                 try:
@@ -441,9 +429,9 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
+                    f"**▷ ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ** {title[:50]}.....\n\n**sɪᴢᴇ:** {size}\n**ᴛɪᴍᴇ ᴜᴘᴛᴏ:** {taken} sec\n\n**ᴄᴏɴᴠᴇʀᴛᴇᴅ ᴛᴏ**[__FFmpeg processing__]"
                 )
-                print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
+                print(f"[{url_suffix}] Downloaded| ɪɴᴛᴇʀᴠᴀʟ: {taken} seconds")
 
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, youtube.download, url, my_hook)
@@ -451,7 +439,7 @@ async def play(_, message: Message):
     else:
         if len(message.command) < 2:
             return await lel.edit(
-                "❌ **Song not found !! Try searching with the correct title**"
+                "⭕ **ғᴏᴜɴᴅ ɴᴏᴛʜɪɴɢ!! ᴛʀʏ ᴀɢᴀɪɴ ᴡɪᴛʜ ᴄᴏʀʀᴇᴄᴛ sᴘᴇʟʟ💜✌️**"
             )
         await lel.edit("🔎 **Finding the song...**")
         query = message.text.split(None, 1)[1]
@@ -479,7 +467,7 @@ async def play(_, message: Message):
 
         except Exception as e:
             await lel.edit(
-                "❌ Song not found.\n\nTry another keyword or `/play [yt url]`."
+                "💭💜 ғᴏᴜɴᴅ ɴᴏᴛʜɪɴɢ ᴛʀʏ ᴏɴᴄᴇ ᴍᴏʀᴇ ᴏʀ `/play [yt url]`."
             )
             print(str(e))
             return
@@ -495,7 +483,7 @@ async def play(_, message: Message):
 
         if (dur / 60) > DURATION_LIMIT:
             await lel.edit(
-                f"❌ Videos longer than {DURATION_LIMIT} minutes aren't allowed to play!"
+                f"❌ ʏᴏᴜʀ ʀᴇǫᴜᴇsᴛ ʟᴏɴɢᴇʀ ᴛʜᴀɴ {DURATION_LIMIT} ᴍɪɴᴜᴛᴇs💜!"
             )
             return
         requested_by = message.from_user.first_name
@@ -519,7 +507,7 @@ async def play(_, message: Message):
                     try:
                         if eta > 2:
                             lel.edit(
-                                f"Downloading {title[:50]}\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"▷ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ {title[:50]}\n\n**sɪᴢᴇ:** {size}\n**ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ:** {percentage}\n**sᴘᴇᴇᴅ:** {speed}\n**ᴇᴛᴀ:** {eta} sec"
                             )
                     except Exception as e:
                         pass
@@ -528,30 +516,30 @@ async def play(_, message: Message):
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}..\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**▷ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ** {title[:50]}..\n\n**sɪᴢᴇ:** {size}\n**ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ:** {percentage}\n**sᴘᴇᴇᴅ:** {speed}\n**ᴇᴛᴀ:** {eta} sec"
                             )
                         print(
-                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
+                            f"[{url_suffix}] sᴀᴠᴇᴅ {percentage} ᴡɪᴛʜ sᴘᴇᴇᴅ {speed} | ᴇᴛᴀ: {eta} seconds"
                         )
                 if per > 500:
                     if flex[str(bytesx)] == 3:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}...\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**▷ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ** {title[:50]}...\n\n**sɪᴢᴇ:** {size}\n**ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ:** {percentage}\n**sᴘᴇᴇᴅ:** {speed}\n**ᴇᴛᴀ:** {eta} sec"
                             )
                         print(
-                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
+                            f"[{url_suffix}] sᴀᴠᴇᴅ {percentage} ᴡɪᴛʜ sᴘᴇᴇᴅ {speed} | ᴇᴛᴀ: {eta} seconds"
                         )
                 if per > 800:
                     if flex[str(bytesx)] == 4:
                         flex[str(bytesx)] += 1
                         if eta > 2:
                             lel.edit(
-                                f"**Downloading** {title[:50]}....\n\n**FileSize:** {size}\n**Downloaded:** {percentage}\n**Speed:** {speed}\n**ETA:** {eta} sec"
+                                f"**▷ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ* {title[:50]}....\n\n**sɪᴢᴇ:** {size}\n**ᴅᴏᴡɴʟᴏᴀᴅᴇᴅ:** {percentage}\n**sᴘᴇᴇᴅ:** {speed}\n**ᴇᴛᴀ:** {eta} sec"
                             )
                         print(
-                            f"[{url_suffix}] Downloaded {percentage} at a speed of {speed} | ETA: {eta} seconds"
+                            f"[{url_suffix}] sᴀᴠᴇᴅ {percentage} ᴡɪᴛʜ sᴘᴇᴇᴅ {speed} | ᴇᴛᴀ: {eta} seconds"
                         )
             if d["status"] == "finished":
                 try:
@@ -560,9 +548,9 @@ async def play(_, message: Message):
                     taken = "00:00"
                 size = d["_total_bytes_str"]
                 lel.edit(
-                    f"**Downloaded** {title[:50]}.....\n\n**FileSize:** {size}\n**Time Taken:** {taken} sec\n\n**Converting File**[__FFmpeg processing__]"
+                    f"**▷ ᴅᴏᴡɴʟᴏᴀᴅɪɴɢ** {title[:50]}.....\n\n**sɪᴢᴇ:** {size}\n**ᴛɪᴍᴇ ᴜᴘᴛᴏ:** {taken} sec\n\n**ᴄᴏɴᴠᴇʀᴛɪɴɢ**[__FFmpeg processing__]"
                 )
-                print(f"[{url_suffix}] Downloaded| Elapsed: {taken} seconds")
+                print(f"[{url_suffix}] sᴀᴠᴇᴅ| ɪɴᴛᴇʀᴠᴀʟ: {taken} seconds")
 
         loop = asyncio.get_event_loop()
         x = await loop.run_in_executor(None, youtube.download, url, my_hook)
@@ -572,10 +560,8 @@ async def play(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo="final.png",
-            caption="**[Get More Information ⚠️]({})**\n\nDuration : {}\nBot User : {}".format(
-                url,
-                duration,
-                message.from_user.mention()
+            caption="**✨ᴍᴜsɪᴄ**\n\n⏱️ᴅᴜʀᴀᴛɪᴏɴ : {}\n🎧ᴜsᴇʀ : {}".format(
+                title, duration, message.from_user.mention()
             ),
             reply_markup=keyboard,
         )
@@ -592,7 +578,7 @@ async def play(_, message: Message):
             )
         except Exception:
             return await lel.edit(
-                "Error Joining Voice Chat. Make sure Voice Chat is Enabled."
+                "ғᴀɪʟᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴠᴄ. ᴇɴᴀʙʟᴇᴅ ᴜʀ ᴠᴄ ʙᴜᴅᴅʏ💜."
             )
 
         await music_on(message.chat.id)
@@ -600,8 +586,8 @@ async def play(_, message: Message):
         await message.reply_photo(
             photo="final.png",
             reply_markup=keyboard,
-            caption="**[Get More Information ⚠️]({})**\n\nDuration : {}\nBot User : {}".format(
-                url, duration, message.from_user.mention()
+            caption="**✨ᴍᴜsɪᴄ**\n\n⏱️ᴅᴜʀᴀᴛɪᴏɴ : {}\n🎧ᴜsᴇʀ : {}".format(
+                title, duration, message.from_user.mention()
             ),
         )
 
