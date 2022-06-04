@@ -14,26 +14,25 @@ from m8n.config import BOT_NAME
 
 @Client.on_message(command("start") & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
-    await message.reply_photo(
-        photo=f"{START_PIC}",
-        caption=f"""**Welcome 👋 {message.from_user.mention()}**
-
-This is the {BOT_NAME}, a bot for playing high quality and unbreakable music in your groups voice chat.
-
-Just add me to your group and make a admin with needed admin permission to perform a right actions !!
-
-Use the given buttons for more 📍""",
+     await message.reply_sticker("CAADBQAD-QQAAhCWOFRERrHKHtIUvgI")
+     await message.reply_text(
+           f"""**✌️ɪᴍ ʟᴀᴢʏ ᴀʙᴏᴜᴛ ᴛʏᴘɪɴɢ ᴀɴʏᴛʜɪɴɢ ɪᴛs ᴀ ᴍᴜsɪᴄ ʙᴏᴛ ʜᴀᴠᴇ ᴍᴀɴʏ ғᴇᴀᴛᴜʀᴇs📍\n\n ᴄʀᴇᴀᴛᴇᴅ ʙʏ[s•4•sʜɪᴠ](t.me/shivamdemon)...
+"""
     reply_markup=InlineKeyboardMarkup(
             [
-                [
+                [   
                     InlineKeyboardButton(
-                        "About", callback_data="cbabout"),
-                    InlineKeyboardButton(
-                        "Commands", callback_data="cbcmds")
+                        "💜°ᴏᴡɴᴇʀ°", url=f"htt 
                 ],
                 [
                     InlineKeyboardButton(
-                        "✚ Add Bot in Your Group ✚", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "💫ɢʀᴏᴜᴘ", callback_data="cbabout"),
+                    InlineKeyboardButton(
+                        "°⚙️ᴄᴍᴅs°", callback_data="cbcmds")
+                ],
+                [
+                    InlineKeyboardButton(
+                        "🏷️°sᴜᴍᴍᴏɴ ᴍᴇ ʙᴀʙʏ°", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ]
            ]
         ),
@@ -44,12 +43,14 @@ Use the given buttons for more 📍""",
 async def help(client: Client, message: Message):
     await message.reply_photo(
         photo=f"{START_PIC}",
-        caption=f"""Thanks for adding me in your group !! If you want to use me with right actions promote me as admin in this Chat.""",
+        caption=f"""ᴛʜᴀɴᴋs ғᴏʀ ᴀᴅᴅɪɴɢ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ 🔥♥️""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
                     InlineKeyboardButton(
-                        "🤖 Bot Owner", url=f"https://t.me/{OWNER_USERNAME}")
+                        "°ᴏᴡɴᴇʀ° 💞", url=f"https://t.me/itz_rupu"),
+                    InlineKeyboardButton(
+                        "°sᴜᴘᴘᴏʀᴛᴇʀ° ✨", url=f"https://t.me/shivamdemon")
                 ]
             ]
         ),
