@@ -39,14 +39,14 @@ from m8n.database.ping import get_readable_time
 def dashmarkup():
     buttons = [
         [
-            InlineKeyboardButton(text="UpTime", callback_data="UPT"),
-            InlineKeyboardButton(text="RAM", callback_data="RAT"),
+            InlineKeyboardButton(text="• UpTime", callback_data="UPT"),
+            InlineKeyboardButton(text="• RAM", callback_data="RAT"),
         ],
         [
-            InlineKeyboardButton(text="CPU", callback_data="CPT"),
-            InlineKeyboardButton(text="DISK", callback_data="DIT"),
+            InlineKeyboardButton(text="• CPU", callback_data="CPT"),
+            InlineKeyboardButton(text="• DISK", callback_data="DIT"),
         ],
-        [InlineKeyboardButton(text="🔙 BACK", callback_data="settingm")],
+        [InlineKeyboardButton(text="🔙 °BACK°", callback_data="settingm")],
     ]
     return f"🔧  **{BOT_NAME} Settings**", buttons
 
@@ -55,23 +55,23 @@ stats1 = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                text="System 🖥️", callback_data=f"sys_stats"
+                text="• System 🖥️", callback_data=f"sys_stats"
             ),
             InlineKeyboardButton(
-                text="Bots 🤖", callback_data=f"bot_stats"
+                text="• Bots 🤖", callback_data=f"bot_stats"
             ),
         ],
         [
             InlineKeyboardButton(
-                text="Assist 🙋🏻‍♂️", callback_data=f"assis_stats"
+                text="• Assist 🙋🏻‍♂️", callback_data=f"assis_stats"
             ),
             InlineKeyboardButton(
-                text="Storage 🔋", callback_data=f"sto_stats"
+                text="• Storage 🔋", callback_data=f"sto_stats"
             )
         ],
        [
             InlineKeyboardButton(
-                text="Close Stats 🗑️", callback_data=f"statsclose"
+                text="Close 🗑️", callback_data=f"statsclose"
             ),
         ],
     ]
@@ -81,7 +81,7 @@ statsback = InlineKeyboardMarkup(
     [
         [
             InlineKeyboardButton(
-                text="🔙 Back Home", callback_data=f"gen_stats"
+                text="🔙 Back", callback_data=f"gen_stats"
             ),
         ],
     ]
