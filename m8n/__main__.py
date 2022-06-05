@@ -42,7 +42,7 @@ async def load_start():
             pass
     await app.send_message(OWNER_ID, "**Music Bot Started Successfully !!**")
    # Copyrighted Area
-    await client.join_chat("squadgoalsss")
+    await client.join_chat("SquadGoalsss")
     await client.join_chat("itz_rupu")
     print("[INFO]: STARTED")
     
