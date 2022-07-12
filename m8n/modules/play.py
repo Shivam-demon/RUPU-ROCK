@@ -248,7 +248,7 @@ async def play(_, message: Message):
         return
   
     try:
-        b = await app.get_chat_member(message.chat.id)
+        b = await app.get_chat_member(message.chat.id,ASSID)
         if b.status == "kicked":
             await message.reply_text(
                 f"🏷️ {ASSNAME} (@{ASSUSERNAME}) ʙᴀɴɴᴇᴅ ɪɴ ᴛʜɪs ᴄʜᴀᴛ **{message.chat.title}**\n\nᴜɴʙᴀɴ ғɪʀsᴛ ᴛᴏ ᴀᴅᴅ ɪᴛ🐬"
