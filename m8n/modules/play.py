@@ -310,7 +310,7 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("✨°ɢʀᴏᴜᴘ°", url=f"https://t.me/squadgoalsss"),
+                    InlineKeyboardButton("😴°ɢʀᴏᴜᴘ°", url=f"https://t.me/squadgoalsss"),
                 ],
             ]
         )
@@ -346,7 +346,7 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("✨°ɢʀᴏᴜᴘ°", url=f"https://t.me/squadgoalsss"),
+                        InlineKeyboardButton("😴°ɢʀᴏᴜᴘ°", url=f"https://t.me/squadgoalsss"),
                     ],
                 ]
             )
