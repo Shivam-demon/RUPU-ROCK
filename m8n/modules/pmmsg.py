@@ -11,5 +11,5 @@ from m8n.config import (
 
 @USER.on_message(filters.text & filters.private & ~filters.me & ~filters.bot)
 async def pmPermit(client: USER, message: Message):
-  await USER.send_message(message.chat.id,"ᴛʜɪs ɪs ʙᴏᴛ  ᴜ ᴀssɪsᴛᴀɴᴛ ᴍsɢ ᴍᴅ ʜᴇʀᴇ...💜\nғᴏʀ ᴘʀᴏʙʟᴇᴍ ᴄᴏɴᴛᴀᴄᴛ @shivamdemon..❣️")
+  await USER.send_message(message.chat.id,"ᴛʜɪs ɪs ʙᴏᴛ  ᴜ ᴀssɪsᴛᴀɴᴛ ᴍsɢ ᴍᴅ ʜᴇʀᴇ...@squadgoalsss💜\nғᴏʀ ᴘʀᴏʙʟᴇᴍ ᴄᴏɴᴛᴀᴄᴛ @shivamdemon..❣️")
   return
