@@ -31,7 +31,7 @@ async def addchannel(client, message):
             link_bokep = f"https://t.me/joinchat/{kontol}"
     except:
         await message.reply_text(
-            "**ᴍᴀᴋᴇ ᴍᴇ ᴀᴅᴍɪɴ ғɪʀsᴛ ʙᴀʙʏ🤗**",
+            "**ᴍᴀᴋᴇ ᴍᴇ ᴀᴅᴍɪɴ ғɪʀsᴛ😒**",
         )
         return
 
