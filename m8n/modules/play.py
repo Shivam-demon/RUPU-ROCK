@@ -246,14 +246,9 @@ async def play(_, message: Message):
             + "\n💡 **ᴘᴇʀᴍɪssɪᴏɴ:** Invite User Via Invitelink"
         )
         return
+  
     try:
-    user = await USER.get_me()
-    except:
-    user.first_name = "demonMusic"
-    usar = user
-    wew = usar.id
-    try:
-        b = await app.get_chat_member(message.chat.id, wew)
+        b = await app.get_chat_member(message.chat.id)
         if b.status == "kicked":
             await message.reply_text(
                 f"🏷️ {ASSNAME} (@{ASSUSERNAME}) ʙᴀɴɴᴇᴅ ɪɴ ᴛʜɪs ᴄʜᴀᴛ **{message.chat.title}**\n\nᴜɴʙᴀɴ ғɪʀsᴛ ᴛᴏ ᴀᴅᴅ ɪᴛ🐬"
