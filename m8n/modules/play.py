@@ -259,7 +259,7 @@ async def play(_, message: Message):
             try:
                 await ASS_ACC.join_chat(f"{message.chat.username}")
                 await message.reply(
-                    f"💫 **ᴀssɪsᴛᴀɴᴛ ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ...ʏɪᴘᴘᴇʏ💜🥀**",
+                    f"💫 **ᴀssɪsᴛᴀɴᴛ ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ...💜🥀**",
                 )
                 await remove_active_chat(chat_id)
             except Exception as e:
@@ -275,7 +275,7 @@ async def play(_, message: Message):
                     link_bokep = f"https://t.me/joinchat/{kontol}"
                 await ASS_ACC.join_chat(link_bokep)
                 await message.reply(
-                    f"💫 **ᴀssɪsᴛᴀɴᴛ ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ...ʏɪᴘᴘᴇʏ💜🥀**",
+                    f"💫 **ᴀssɪsᴛᴀɴᴛ ᴊᴏɪɴᴇᴅ sᴜᴄᴄᴇssғᴜʟʟʏ...💜🥀**",
                 )
                 await remove_active_chat(message.chat.id)
             except UserAlreadyParticipant:
@@ -310,7 +310,6 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💜°ᴏᴡɴᴇʀ°", url=f"https://t.me/itz_rupu"),
                     InlineKeyboardButton("✨°ɢʀᴏᴜᴘ°", url=f"https://t.me/squadgoalsss"),
                 ],
             ]
@@ -347,7 +346,6 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("💜°ᴏᴡɴᴇʀ°", url=f"https://t.me/itz_rupu"),
                         InlineKeyboardButton("✨°ɢʀᴏᴜᴘ°", url=f"https://t.me/squadgoalsss"),
                     ],
                 ]
@@ -475,8 +473,7 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("💜°ᴏᴡɴᴇʀ°", url=f"https://t.me/itz_rupu"),
-                    InlineKeyboardButton("✨°ɢʀᴏᴜᴘ°", url=f"https://t.me/squadgoalsss"),
+                    InlineKeyboardButton("😴°ɢʀᴏᴜᴘ°", url=f"https://t.me/squadgoalsss"),
                 ],
             ]
         )
@@ -578,7 +575,7 @@ async def play(_, message: Message):
             )
         except Exception:
             return await lel.edit(
-                "ғᴀɪʟᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴠᴄ. ᴇɴᴀʙʟᴇᴅ ᴜʀ ᴠᴄ ʙᴜᴅᴅʏ💜."
+                "ғᴀɪʟᴇᴅ ᴛᴏ ᴊᴏɪɴ ᴠᴄ.ᴛᴜʀɴ ᴏɴ ᴠᴄ💜."
             )
 
         await music_on(message.chat.id)
